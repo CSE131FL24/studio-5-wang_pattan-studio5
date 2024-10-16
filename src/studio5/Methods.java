@@ -14,7 +14,7 @@ public class Methods {
 	 * @return the Euclidean distance between (x1,y1) and (x2,y2)
 	 */
 	public static double distanceBetween(double x1, double y1, double x2, double y2) {
-		double distance = 0;
+		double distance = Math.sqrt(Math.pow((x2-x1),2) + Math.pow((y2-y1),2));
 		// FIXME: Hint use Math methods (e.g. Math.sqrt) to compute the distance
 		
 		return distance;
@@ -34,16 +34,21 @@ public class Methods {
 		// TODO: Draw the remaining rings of the bull's eye
 		// Blue ring with 3.0/4.0 the radius
 		// suggested rgb values: 0, 109, 219
-
+		StdDraw.setPenColor(StdDraw.BLUE);
+		StdDraw.filledCircle(x, y, (3.0/4.0)*radius);
+		
 		
 
 		// Red ring with 1.0/2.0 the radius
 		// suggested rgb values: 146, 0, 0
-
+		StdDraw.setPenColor(StdDraw.RED);
+		StdDraw.filledCircle(x, y, (1.0/2.0)*radius);
 		
 
 		// Yellow ring with 1.0/4.0 the radius
 		// suggested rgb values: 255, 255, 109
+		StdDraw.setPenColor(StdDraw.YELLOW);
+		StdDraw.filledCircle(x, y, (1.0/4.0)*radius);
 
 		
 	}
@@ -61,6 +66,19 @@ public class Methods {
 	 */
 	public static String substituteAll(String source, char target, String replacement) {
 		String result = "";
+		for(int i=0; i<source.length(); i++) {
+			if(source.charAt(i)==target) {
+				result +=replacement;
+			}
+			else {
+				result += source.charAt(i);
+			}
+		}
+		//fivei, i, o
+		//f
+		// f!=i
+		//result : foveo
+		
 		// TODO: Finish this method
 		
 		return result;
@@ -86,11 +104,19 @@ public class Methods {
 	 * @param value  the value to fill the array with
 	 * @return and array of size that's filled with value
 	 */
+	@SuppressWarnings("null")
+	/**
+	 * 
+	 * @param length
+	 * @param value
+	 * @return
+	 */
 	public static int[] filledArray(int length, int value) {
-		int[] values = null; // FIXME: Create an array of the appropriate size
+		int[] values = new int[length]; // FIXME: Create an array of the appropriate size
 		// TODO: Finish this method
-
-		
+		for (int i=0; i<length; i++) {
+			values[i]=value;
+		}
 
 		return values;
 	}
